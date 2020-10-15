@@ -4,36 +4,45 @@
 // You have to use the arguments object.
 
 // pseudocode
-// initiate an empty []
-// check if I could only grab numbers that are in [] of arr.
+//initiate empty Array.
 // if numbers that are NOT in the [] of arr is also present in the array of arr, delete it from the [].
 // return the [numbers]
 
   //
 
 function destroyer(arr) {
- 
-  }
+  let emptyArray = [];
   
-  destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 1; j < arguments.length; j++) {
+      if (arr[i] !== arguments[j]) {
+        emptyArray.push(arr[i])
+      }
+    }
+    return emptyArray
+  }
+}
+  
+console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
+
+// console.log(destroyer(([3, 5, 1, 2, 2], 2, 3, 5)));
+// should return [1].
   
 // arr = [1, 2, 3, 1, 2, 3], 2, 3
 
-  // code
-
-  //
-  
-  
-  
   
   
 // destroyer([1, 2, 3, 1, 2, 3], 2, 3) should return [1, 1].
 
-// destroyer([1, 2, 3, 5, 1, 2, 3], 2, 3) should return [1, 5, 1].
+// console.log(destroyer([1, 2, 3, 5, 1, 2, 3], 2, 3))
+// should return [1, 5, 1].
 
 // destroyer([3, 5, 1, 2, 2], 2, 3, 5) should return [1].
 
+// console.log(destroyer([3, 5, 1, 2, 2], 2, 3, 5))
+
 // destroyer([2, 3, 2, 3], 2, 3) should return [].
+// console.log(destroyer([2, 3, 2, 3], 2, 3));
 
 // destroyer(["tree", "hamburger", 53], "tree", 53) should return ["hamburger"].
 
