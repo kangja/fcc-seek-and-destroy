@@ -4,31 +4,46 @@
 // You have to use the arguments object.
 
 // pseudocode
-//initiate empty Array.
-// if numbers that are NOT in the [] of arr is also present in the array of arr, delete it from the [].
-// return the [numbers]
 
-  //
 
 function destroyer(arr) {
-  let emptyArray = [];
-  
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 1; j < arguments.length; j++) {
-      if (arr[i] !== arguments[j]) {
-        emptyArray.push(arr[i])
-      }
-    }
-    return emptyArray
-  }
-}
-  
-console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
+  let union = [];
+  let diff = [];
 
-// console.log(destroyer(([3, 5, 1, 2, 2], 2, 3, 5)));
-// should return [1].
   
-// arr = [1, 2, 3, 1, 2, 3], 2, 3
+  const args = Array.from(arguments);
+  // console.log(args)
+  // [ [ 1, 2, 3, 1, 2, 3 ], 2, 3 ]
+
+  const argsZero = args[0];
+  // console.log(argsZero)
+  // [ 1, 2, 3, 1, 2, 3 ]
+
+  const argsSlice = args.slice(1);
+  // console.log(args.slice(1))
+  // [ 2, 3 ]
+
+  for (let i = 0; i < argsZero.length; i++) {
+    if (!union.includes(argsZero[i])) {
+      union.push(argsZero[i])
+    }
+  }
+
+  for (let i = 0; i < argsSlice.length; i++) {
+    if (!union.includes(argsSlice[i])) {
+      union.push(argsSlice[i])
+    }
+  }
+
+  return union;
+}
+
+// const 
+
+// console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
+
+console.log(destroyer(([3, 5, 1, 2, 2], 2, 3, 5)));
+// should return [1].
 
   
   
